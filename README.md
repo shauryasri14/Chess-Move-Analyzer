@@ -12,7 +12,7 @@ Stockfish judges every move, code tags the cause, and a small local LLM (via Oll
 
 ---
 
-## Why this exists
+## Why this exists 
 
 Casual players finish a game or a puzzle and want one thing: *what did I do wrong?* Many tools lock full analysis behind a paid plan, which doesn't make sense for someone who plays a few games a month.
 
