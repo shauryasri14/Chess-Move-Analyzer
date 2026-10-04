@@ -1,0 +1,17 @@
+.git
+.gitignore
+.github
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.streamlit/secrets.toml
+
+# Local Stockfish binaries; the image installs its own
+stockfish*
+*.exe
+
+Dockerfile
+docker-compose.yml
+.dockerignore
