@@ -196,4 +196,4 @@ python analyzer.py sample.pgn --depth 18 --no-llm    # deeper search, no Ollama
 
 ## License
 
-Released under the GPL-3.0 license. See `LICENSE`.
+Released under the GPL-3.0 license. See `LICENSE`. 
