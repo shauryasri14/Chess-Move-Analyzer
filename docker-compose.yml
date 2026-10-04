@@ -1,0 +1,38 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama:/root/.ollama          # models persist between runs
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+    # Not published to the host: only the app container can reach it.
+
+  # One-shot job: downloads the model into the shared volume, then exits.
+  model-pull:
+    image: ollama/ollama:latest
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["ollama", "pull", "gemma3:4b"]
+    restart: "no"
+
+  app:
+    build: .
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      STOCKFISH_PATH: /usr/games/stockfish
+    ports:
+      - "127.0.0.1:8501:8501"          # reachable from this computer only
+    restart: unless-stopped
+
+volumes:
+  ollama:
