@@ -78,6 +78,14 @@ Evaluations are clamped to ±15 pawns, so reducing a huge lead (+15 to +9) is no
 
 ## Setup
 
+## Run with Docker
+
+```bash
+docker compose up --build
+```
+
+Open http://localhost:8501. The first run downloads Stockfish and the `gemma3:4b` model.
+To use a different model, change the name in `docker-compose.yml` and in the app sidebar.
 ### 1. Requirements
 - Python 3.9 or newer
 - [Stockfish](https://stockfishchess.org/download/)
