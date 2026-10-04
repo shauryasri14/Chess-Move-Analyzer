@@ -1,0 +1,3 @@
+python-chess
+streamlit
+ollama
